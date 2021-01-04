@@ -1,0 +1,7 @@
+Main file:
+labs/lab3/consumer.c: 0, 2
+labs/lab3/meminit.c: 3, 0
+labs/lab3/producer.c: 0, 2
+
+Module Files:
+No module file

@@ -1,0 +1,20 @@
+Student Name: Shangzhou Yin/Student Number 20126159
+Student Name: Zhenyue Yu/Student Number 20093332
+
+The five output files for this lab are test1out.txt, test2.txt, test2out.txt, test3out.txt and test4out.txt.
+
+The test1out.txt was “~/Elec377-group-24/lab4/printDoc.sh > test1out.txt”to save the output of comments in a text file.
+It should output the comments from the files that ends in .c or .h of previous labs without leading delimiters. There should be a bar of equal sign to separate comments from different files.  
+
+The test2.txt was “progStats.sh lab4 > test2.txt” to save the output of wrong number of arguments in a text file.
+It should output “Usage: ./progStats.sh DIRECTORY”
+
+The test2out.txt was “progStats.sh labs > test2out.txt” to save the output of numbers of printf and fprintf in int main function and line numbers in init_module function in all labs.
+It found the correct line numbers and number of printf and fprintf statements in this testing file.
+
+The test3out.txt was “progStats.sh labs/lab3 > test3out.txt” to save the output of if module files exist in lab3.
+It should output the “no module file” since no init_module function in lab3.
+
+The test4out.txt was “progStats.sh labs/lab2 > test4out.txt” to save the output of if main files exist in lab2.
+It should output the “no main file” since no int main function in lab2.
+

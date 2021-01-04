@@ -1,0 +1,43 @@
+documentation
+Zhenyue Yu/Student Number 20093332
+Shangzhou Yin/Student Number 20126159
+
+Objective:  Learn shell scripting and its application in analyzing files.
+script description
+script_1 description: extracts specially formatted comments from C source files. 
+script_2 description: For each source file that contains a main function, it displays the full path of the
+file and append the number occurrences of printf and of fprintf as separate numbers. 
+For each module file (i.e. a file that contains the function init_module), it list the
+full path of the file and appends the number of lines that contain printk.
+If no main file is found, the script displays “no main files..”; if no module file, it displays
+“no module files...”.
+ 
+code description
+set up: make both files excutable
+chmod a + x printDoc.sh
+chmod a + x progStats.sh
+The code for the first script uses echo, for in with find command, and sed command.
+for in with find command can find all the c and h files by using *.c and *.h
+echo can print a line of equal signs by echo "================"
+sed can extract all the comments that start with "//+" end with "//-" by setting the starting
+pattern "//+" and ending pattern "//-".
+The second sed will substitute all the "//+", "//-" and "//" with "". In this way, all the 
+leading comment delimiters can be removed.
+
+The code for the second script uses echo, for in with find command, grep command, and if with then command.
+The first "if" checks if the number of argument is one by using "$#" != 1; the name of the script is $0.
+The second "if" checks if the first argument is a directory by using [-d $1] and runs the script by setting
+the variable "hasMainFile" = 1; echo "main file"; for in with find "*.c" to get all c files and it also sets
+the variable "hasMainFile" = 0 to indicate that main file exist. Therefore, if "hasMainFile" is still 1, then
+echo "No main File"
+The command grep -n can check whether "int main" and file exist
+The command grep -c can count the number of lines of "fprintf" and "printf". Since prinf lines includes the sum
+of fprintf and printf, so the printf is the result of grep -c printf subtracts grep -c fprintf.
+Then do the same thing for module files but look for line numbers
+The command grep -q can find the line number of printk.
+
+
+
+
+
+
