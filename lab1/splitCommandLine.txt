@@ -1,0 +1,11 @@
+
+
+The test1.txt records the input and output.
+
+Type "    this is a sentence", it will skip spaces, split sentence into words, and return the number of words. The outputs are "this", "is", "a", "sentence", and the number of words is 4, so it is correct. Type "this   is   a sentence", it also print "this", "is", "a", "sentence", so the output is correct. Type spaces, it shows "-1" since we didn't type anything, and the "count--".Type more than 10 times "test" to check whether the fprintf() prints the error message. The output shows the error message, so the output is correct.
+
+
+
+
+
+

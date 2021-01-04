@@ -1,0 +1,47 @@
+Code Documentation
+
+Student Name Shangzhou Yin/Student Number 20126159
+Student Name Zhenyue Yu/Student Number 20093332
+
+
+File name: lab2.c
+
+Objective: Using the /proc file system, retrieve information about the current state of the processes on the system. The commands are:
+	int my_read_proc(char * page, char **start, off_t fpos, int blen, int * eof, void * data)：Read process information from kernel level to user level. 
+	numChars = sprintf(page, “context”): sprint function can print the context and return number of characters that will be stored into numChars. Page + numChars will start from which the last write left off. 
+	int init_module: execute entry of kernel, then it waits for user program to call.	
+	cleanup_module: remove the module after init_module is called, and it avoid kernel crash.
+	
+
+Code description:
+
+	The code is divided into four sections.
+	The first section is read procedure reads a file from a disk, and the times to call depends on the values of the flag.
+	The second section prints “hello world” that stored in the buffer.
+	The third section prints task information for one task.
+       	The last function prints task information for rest of tasks.
+
+
+1.	The read procedure consists of parameters that control user to read from a disk.
+ 	It first uses pointer page to point to the kernel buffer that stores the data to be sent to the process. Start can ensures that kernel can use the memory (*start = page). Blen is the length of the buffer.
+	Check if Fpos=0 to make the module read from the beginning of the file.
+	The init_module checks whether the pointer to data structure exist. If the pointer is null, then return -1 to tell kernel to delete kernel. Otherwise set entry of data structure and call read function. Return 0 to tell kernel the initialization of module is successful. 
+2.	The “hello world” testing calls sprint function to print context.
+           It calls sprint to print the headers”hello” and return the number of characters(5) to numChars. Then it calls sprintf function again, add numChars to page to set the start position of “world\n” after “hello”.
+3.	Printing task information can print PID, UID, VSZ, RSS for one task.
+	It starts by calling sprint to print headers “PID, UID, VSZ, RSS” at the first line.
+	It then sets the initial task address to the current task. In order to get the first valid task, a while loop is used to check whether the task uid is not zero. If the uid is zero, then the current task will point to the next task and check again until find the task uid that is nonzero. 
+	Once the first valid task is found, call sprintf function to print the task information. Return the values back to numChars to set the next start position. 
+	Next check whether the field mm in the current task is null. If mm is null, then print 0 and 0 below VSZ and RZZ headers. If mm is not null, then multiply both total_vm and rss fields in mm by page size K, and print them below VSZ and RSZ headers.
+	Finally, a do…while loop is used to find the next valid task (check whether task pid is zero). 
+4.	Printing task information for the rest of valid tasks does the same step as step3, it ends printing when the current task pointer equals to the first task pointer, which means it finishes going through all the valid tasks.
+
+
+        Special trick
+The special trick is sprintf since it can print into a buffer and return the number of characters that were written. It helps mark the position by adding the return values.
+	numChars = sprintf(page, “Hello”);
+	numChars += sprintf(page + numChars, “ World\n”);
+The first one print “hello” and return 5 to numChars. The second one start after page + numChars and print “world\n”. Then numChars is updated by adding new return value to the previous numChars. 
+
+
+

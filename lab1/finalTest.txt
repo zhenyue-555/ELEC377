@@ -1,0 +1,14 @@
+
+Final Test:
+
+test.txt records the input and output.
+
+Type "ls", it is supposed to print  the files' names in the directory. The output from the program is "Makefile", "shell.c","shell", "test.txt", "Program_description.txt", which matches the output with typing the commands in the default shell in the test2.txt. Also, type "ls -a", it should hide the files start with ".", and print other files. The test.txt shows that the file names without the ".", so this output is also correct. If type random letters after "ls", it is supposed to show the "Could not find the command", which matches the output.
+
+Type "cd", it will change the directory. Type random letters(fjakf) after "cd", it should print "Could not change the directory to fjakf", and the output matches the fprintf().
+
+Type "pwd", it will print the current working directory. The output shows the current working directory "/home/student/", which matches the output found in the default shell. 
+
+Type random letter/space, it prints "Command not recognized", which matches the fprintf() in the doCommand function.
+
+Type "exit", it exits the program, so the output is correct.

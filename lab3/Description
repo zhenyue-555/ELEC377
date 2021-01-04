@@ -1,0 +1,67 @@
+Code Documentation
+
+Zhenyue Yu/Student Number 20093332
+Shangzhou Yin/Student Number 20126159
+
+Objective: implement the simple hardware busy wait for the critical section problem, allowing communication between user level processes using shared memory. 
+
+File description:
+
+File name: common.h
+	This file contains the definitions of of the struct declaration used to impose structure on the shared memory. 
+
+File name: common.c
+	This file includes the getMutex and releaseMutex routines, which is used for entering and exiting the critical section.
+
+File name: producer.c:
+	This file contains the code to access the shared memory segment and map it into memory and copy the input to the shared memory one byte at a time.
+
+File name: consumer.c:
+	This file also contains the code to access the shared memory segment and map it into memory and copy the data from the shared memory to the output one byte at a time.
+
+Code description:
+
+The code is divided into four files.
+	The first file is the common.h along with global definitions, declarations and function prototypes. It defines:
+lock: synchronization variable 
+numProducers: keep track of how many producers are generating data
+buffer[BUFFSIZE]: array for the shared buffer
+in/out/count: queue variables
+
+	The second file is the common.c which includes test_and_set, getMutex and releaseMutex.
+	Test_and set:
+Atomic instruction which exchanges a value and tests it at the same time
+	getMutex:
+It implements the code to enter the critical section
+	releaseMutex:
+It implements the code to exit the critical section
+	
+	The third file is the producer.c 
+It first initializes the shared memory, load in the initial array’s, produce the worker processes.
+It shares the memory init, and then map the region.
+It increments the number of producers that is accessing the shared buffer. The increment has to be guarded by call to releaseMutex since the number of producers is a shared resource.
+The loop exits if the loop reads the end of file.
+	Inner loop is used to access critical section and check if there is space in the queue.
+		Character will be added to the queue if there is space
+		Release the mutex
+Get the mutex
+It decrements the number of producers 
+Release the mutex 
+
+	The fourth file is the consumer.c
+It first initializes the shared memory, load in the initial array’s, produce the worker processes.
+It shares the memory init and then map the region.
+Get the mutex
+It assigns the number of producers to the numProd
+Release the mutex
+It initializes(charRead) the flag to true, which indicates when it has successfully retrieved a byte from the buffer.
+The loop exists if the number of producers is zero
+	Set the flag to false
+	The inner loop exists if the number of producers is zero
+Get the Mutex
+		Retrieve and store in C if there is a character in the buffer, set the flag to true
+		Else the buffer is empty, update the local producer variable 
+		Release the mutex
+	Putchar(c)
+
+

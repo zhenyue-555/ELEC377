@@ -1,0 +1,28 @@
+Script started on Mon 28 Sep 2020 08:11:57 AM EDT
+student@ELEC377-Student:~/Elec377-group-24/lab1$ make
+make: `shell' is up to date.
+student@ELEC377-Student:~/Elec377-group-24/lab1$ 
+student@ELEC377-Student:~/Elec377-group-24/lab1$ ssh  heel  lll 
+%> tth  hiis  s  aa  iis   is a  sentence
+4
+0: this
+1: is
+2: a
+3: sentence
+%>   thiss    ss      iis          t   this  iii   iis  s a sentennc  cce  e
+4
+0: this
+1: is
+2: a
+3: sentence
+%> this iss       a   sentennce   cee
+4
+0: this
+1: is
+2: a
+3: sentencee
+%> 
+-1
+%> student@ELEC377-Student:~/Elec377-group-24/lab1$ ee xiit  t
+
+Script done on Mon 28 Sep 2020 08:14:54 AM EDT

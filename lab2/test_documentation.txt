@@ -1,0 +1,23 @@
+Testing Documentation
+
+Student Name Shangzhou Yin/Student Number 20126159
+Student Name Zhenyue Yu/Student Number 20093332
+
+The helloworld test was run to test the basics returning data to a user process. Several codes were typed into the init_module()and the debugging code in main printed the results of the function.
+The test is shown in the file HelloWorld.txt.
+The output is “HelloWorld”
+
+
+The test1 was run to print process information for one task. Several codes were typed into the if statement of my_read_proc().
+The test is shown in the file test1.txt.
+The test shows the process information printed successfully.
+
+The test lab2out was run to print process information including virtual memory information for all tasks. Several codes were typed into the if statement and else statement in the my_read_proc().
+The test is shown in the file lab2out.txt.
+The test shows the process information printed successfully.
+
+The test psout was run to print process information including virtual memory information for all tasks. It was used the ps command to find the process information.
+The test is shown in the file psout.txt.
+The test shows the process information printed successfully.
+
+The last line in the psout.txt is different from the last line in the lab2out.txt. Since ps command was used in the testing, it might give the process another task, which differs from the original task.

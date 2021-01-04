@@ -1,0 +1,8 @@
+Script started on Sat 10 Oct 2020 01:07:38 PM EDT
+student@ELEC377-Student:~/Elec377-group-24/lab2$ make
+make: `lab2.o' is up to date.
+student@ELEC377-Student:~/Elec377-group-24/lab2$ makeexitcat /proc/lab2
+HelloWorld
+student@ELEC377-Student:~/Elec377-group-24/lab2$ exit
+
+Script done on Sat 10 Oct 2020 01:09:06 PM EDT

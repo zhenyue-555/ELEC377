@@ -1,0 +1,20 @@
+documentation
+Zhenyue Yu/Student Number 20093332
+Shangzhou Yin/Student Number 20126159
+
+Objective: to examine a common security vulnerability, the buffer overflow. 
+------------------------------------------selfcomp------------------------------
+Location of buffer: 80407904
+Length of string:  105 =  100 'x's + 4(wxyz) + 1(null)
+
+This file writes the content of exploit array to buffer in the default function “foo”. The size of the buffer is smaller than the exploit string. The NOP instructions in the beginning of the array is to make sure the new return address is aligned with the existing return address in the “foo” function. This overwrites the existing return address in the “foo” function. Thus, it causes the program counter to point to the beginning of the exploit code. The NOP instruction in the exploit code will cause program counter incremented continuously.
+It writes into selfcompOutput.txt.
+------------------------------------------Client-----------------------------------  
+Location of buffer: 8040c904
+Length of string:  134 = 128 'x's + 4(wxyz) +1(new line) + 1(null)
+
+The client works almost the same as the selfcomp except it sends the exploit string to the server. The server uses the get function to read the data from the client. Then the server uses “cat /etc/passwd;exitX” to print file and then sends it back to the client. It writes into 'clientOutput.txt'.
+
+------------------------------------------Exploit-----------------------------------
+The main purpose of the exploit is to change the program counter to point to the beginning of the code what we want to execute. Basically, it needs to execute the command "cat /etc/passwd;exitX". To do this, a system call is used to move “0x0b” into the eax register. It moves the memory address exeStr into the ebx register, moves the address of the argv array into the ecx register, and clears the edx register. The final instruction traps to the kernel to execute the system call.
+

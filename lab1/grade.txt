@@ -1,0 +1,6 @@
+working code		1 /1.5 (cd with two arguments works instead of throwing an error)
+documentation		2.5 /3.5
+test			3.5 /3.5
+code quality		1.5 /1.5 
+
+total			8.5 /10

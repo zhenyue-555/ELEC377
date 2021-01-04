@@ -1,0 +1,41 @@
+Script started on Mon 28 Sep 2020 10:24:01 AM EDT
+student@ELEC377-Student:~/Elec377-group-24/lab1$ make
+make: `shell' is up to date.
+student@ELEC377-Student:~/Elec377-group-24/lab1$ shell
+%> ls
+Makefile
+shell.c
+shell
+test1.txt
+Program_description.txt
+test.txt
+splitCommandLine.txt
+finalTest.txt
+%> ls -a
+.
+..
+Makefile
+shell.c
+shell
+test1.txt
+Program_description.txt
+test.txt
+.shell.c.swo
+.shell.c.swn
+.Program_description.txt.swp
+splitCommandLine.txt
+finalTest.txt
+%> ls khkhf     fjakf
+Could not find the command
+%> 
+Command not recognized%> cd
+%> cd
+%> cdjlk    kljl
+ Could not change the directory to kljl %> 
+Command not recognized%> p pwd
+/home/student
+%> pwd jlk
+/home/student
+%> exit
+student@ELEC377-Student:~/Elec377-group-24/lab1$ exit
+Script done on Mon 28 Sep 2020 10:26:31 AM EDT

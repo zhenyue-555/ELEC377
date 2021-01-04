@@ -1,0 +1,12 @@
+Script started on Mon 28 Sep 2020 10:26:55 AM EDT
+student@ELEC377-Student:~/Elec377-group-24/lab1$ ls  make
+make: `shell' is up to date.
+student@ELEC377-Student:~/Elec377-group-24/lab1$ ls
+Makefile  Program_description.txt  finalTest.txt  shell  shell.c  splitCommandLine.txt	test.txt  test1.txt  test2.txt
+student@ELEC377-Student:~/Elec377-group-24/lab1$ pwd
+/home/student/Elec377-group-24/lab1
+student@ELEC377-Student:~/Elec377-group-24/lab1$ cd
+student@ELEC377-Student:~$ ls -a
+.  ..  .Xauthority  .bash_history  .fvwm  .gitconfig  .ssh  .viminfo  .vimrc  Elec377-group-24	test2.txt
+student@ELEC377-Student:~$ exit
+Script done on Mon 28 Sep 2020 10:28:09 AM EDT

@@ -1,0 +1,7 @@
+Script started on Sat 10 Oct 2020 02:55:25 PM EDT
+student@ELEC377-Student:~/Elec377-group-24/lab2$ make
+cc -c -DMODULE -D__KERNEL__ lab2.c
+student@ELEC377-Student:~/Elec377-group-24/lab2$ B makeexitcat /proc/lab2
+PID UID VSZ RSS   1    0
+student@ELEC377-Student:~/Elec377-group-24/lab2$ exit
+Script done on Sat 10 Oct 2020 02:56:03 PM EDT

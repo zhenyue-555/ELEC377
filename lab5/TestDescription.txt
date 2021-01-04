@@ -1,0 +1,30 @@
+The first test is the selfcomp program, the second test is the client program. 
+
+first test selfcomp.c
+two commands are used to see the content of the program counter(eip)
+1. gdb selfcomp core
+2. info target
+
+To test the return address. We created the exploit.nasm and wrote assembly code as provided.
+3. nasm -l exploit.lst -f exploit.nasm
+This command translates code in nasm and creates a new file exploit.lst 
+We used translated code from exploit.lst.
+We then calculated the correct amount of 'nop' instructions(100'x' - 97 = 3NOP), and adjusted 
+for the return address. This printed the /etc/passwd/ contents to
+the console, when the scripts were ran.
+
+second test client.c
+This is the client breaking into the server of "another system". 
+The other server was just a server running on the same system as the client.c
+The client get access to the password file in the server.
+
+The number of NOP instruction asnd the return address are different, but the assembly code are the same as selfcomp.c 
+This was done using gdb in the same was, but this time the contents of the esp register were also inspected to calculate the correct return address.
+Once both parts were done, the server was run on one console and the client on another, both with the same port number 10000.
+4. console 1: server 10000
+5. console 2: client 10000
+This resulted in the client returning the contents of the /etc/passwd file and the server crashing, as expected.
+
+The results from both tests are in selfcompOutput.txt and clientOutput.txt
+The results from both tests are the same since the "system" the two programs broke
+into is the same (the lab VM). As a result the data returned from both is the same.
